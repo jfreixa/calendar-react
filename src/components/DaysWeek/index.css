@@ -1,8 +1,4 @@
-tr {
-  text-align: center;
-}
-
-th {
+.daysWeek {
   height: 34px;
   width: 34px;
   font-weight: 500;

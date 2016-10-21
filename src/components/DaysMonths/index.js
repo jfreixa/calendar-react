@@ -10,42 +10,39 @@ const DaysMonths = ({date}) => {
   let actualDate = new Date(date.getTime())
   let actualMonth = actualDate.getMonth()
   let calendar = []
-  calendar[0] = []
 
   actualDate.setDate(1)
 
   let firstDayOfMonth = (actualDate.getDay() === 0) ? 7 : actualDate.getDay()
 
   for (let i = 1; i < firstDayOfMonth; i++) {
-    calendar[0].push('')
+    calendar.push({'dayClass': 'day', 'number': ''})
   }
 
-  let weekOfMonth = 0
 
   while (actualDate.getMonth() === actualMonth) {
-    let printDay = sameDate(actualDate, new Date()) ? actualDate.getDate() + 100 : actualDate.getDate()
-
-    calendar[weekOfMonth].push(printDay)
-
-    actualDate.setDate(actualDate.getDate() + 1)
-
+    let dayClass = 'day'
+    if (sameDate(actualDate, new Date())) {
+      dayClass += ' today'
+    }
     if (actualDate.getDay() === 1) {
-      weekOfMonth++
-      calendar[weekOfMonth] = []
+      dayClass += ' clear'
+    }
+    calendar.push({'dayClass': dayClass, 'number': actualDate.getDate()})
+    actualDate.setDate(actualDate.getDate() + 1)
+  }
+
+  if (actualDate.getDay() === 0) {
+    for (let i = 7, j = calendar.length % 7; i > j; i--) {
+      calendar.push({'dayClass': 'day', 'number': ''})
     }
   }
 
-  for (let i = 7, j = calendar[weekOfMonth].length; i > j; i--) {
-    calendar[weekOfMonth].push('')
-  }
-
   return (
-    <div>
-      {calendar.map((week, index) => (
-        <div key={index}>
-          {week.map((day, index) => ((day > 100) ? <div key={index} className='today day'> {day - 100}</div> : <div className='day' key={index}>{day}</div>))}
-        </div>
-      ))}
+    <div className='dayContainer'>
+      {calendar.map((day, index) => {
+        return <div key={index} className={day.dayClass}>{day.number}</div>
+      })}
     </div>
   )
 }
