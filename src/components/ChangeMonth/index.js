@@ -1,15 +1,22 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
+import './index.css'
+import ArrowLeft from 'react-mdi/icons/arrow-left'
+import ArrowRight from 'react-mdi/icons/arrow-right'
 const ChangeMonth = ({handleDate, month}) => (
   <div>
-    <button onClick={handleDate} className='arrow' data-month='prev'>
-      prev
+    <button onClick={handleDate} className='arrow prev'>
+      <ArrowLeft size={20} className='prev' />
     </button>
     <div id='actualDate'>
       {month}
     </div>
-    <button onClick={handleDate} className='arrow' data-month='next'>
-      next
+    <button onClick={handleDate} className='arrow next'>
+      <ArrowRight size={20} className='next' />
     </button>
   </div>
 )
+ChangeMonth.propTypes = {
+  handleDate: PropTypes.func.isRequired,
+  month: PropTypes.string.isRequired
+}
 export default ChangeMonth

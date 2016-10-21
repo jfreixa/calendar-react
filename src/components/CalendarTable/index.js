@@ -1,9 +1,9 @@
 import React from 'react'
 import DaysWeek from '../DaysWeek'
 import DaysMonths from '../DaysMonths'
-const CalendarTable = ({daysWeek, date}) => (
+const CalendarTable = ({date}) => (
   <table>
-    <DaysWeek days={daysWeek} />
+    <DaysWeek />
     <DaysMonths date={date} />
   </table>
 )

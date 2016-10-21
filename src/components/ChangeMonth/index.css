@@ -1,0 +1,16 @@
+#actualDate {
+  width: 80%;
+  display: inline-block;
+  font-weight: 700;
+}
+.arrow {
+  width: 8%;
+  border: none;
+  background: none;
+  font-weight: 700;
+  line-height: 3em;
+  cursor: pointer;
+}
+.arrow:focus {
+  outline: none !important;
+}

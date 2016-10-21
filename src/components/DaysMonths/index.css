@@ -1,0 +1,16 @@
+tr {
+  text-align: center;
+}
+
+td {
+  height: 34px;
+  width: 34px;
+  font-weight: 500;
+}
+
+.today {
+  background-color: #4FC3F7;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 700;
+}

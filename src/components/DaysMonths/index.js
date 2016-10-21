@@ -1,4 +1,11 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
+import './index.css'
+const sameDate = (date1, date2) => (
+    date1.getDate() === date2.getDate() &&
+    date1.getMonth() === date2.getMonth() &&
+    date1.getFullYear() === date2.getFullYear()
+)
+
 const DaysMonths = ({date}) => {
   let actualDate = new Date(date.getTime())
   let actualMonth = actualDate.getMonth()
@@ -16,10 +23,7 @@ const DaysMonths = ({date}) => {
   let weekOfMonth = 0
 
   while (actualDate.getMonth() === actualMonth) {
-    let printDay = (actualDate.getDate() === new Date().getDate() &&
-    actualDate.getMonth() === new Date().getMonth() &&
-    actualDate.getFullYear() === new Date().getFullYear()
-      ) ? actualDate.getDate() + 100 : actualDate.getDate()
+    let printDay = sameDate(actualDate, new Date()) ? actualDate.getDate() + 100 : actualDate.getDate()
 
     calendar[weekOfMonth].push(printDay)
 
@@ -32,7 +36,7 @@ const DaysMonths = ({date}) => {
   }
 
   for (let i = 7, j = calendar[weekOfMonth].length; i > j; i--) {
-    calendar[weekOfMonth].push(' ')
+    calendar[weekOfMonth].push('')
   }
 
   return (
@@ -44,6 +48,9 @@ const DaysMonths = ({date}) => {
       ))}
     </tbody>
   )
+}
+DaysMonths.propTypes = {
+  date: PropTypes.object.isRequired
 }
 
 export default DaysMonths

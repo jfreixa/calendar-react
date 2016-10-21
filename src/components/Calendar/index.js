@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-import './App.css'
-import daysWeek from '../../data/daysWeek'
+import './index.css'
 import months from '../../data/months'
 import ChangeMonth from '../ChangeMonth'
 import CalendarTable from '../CalendarTable'
 
 class App extends Component {
-  constructor (props) {
-    super(props)
+  constructor (...args) {
+    super(...args)
     this.state = {
       date: new Date()
     }
@@ -16,13 +15,9 @@ class App extends Component {
   }
 
   handleDate ({target}) {
-    let action = target.dataset.month === 'next' ? 1 : -1
-
+    let action = target.classList.contains('next') ? 1 : -1
     let updateDate = new Date(this.state.date.getTime())
-
     updateDate.setMonth(updateDate.getMonth() + action)
-
-    console.log(updateDate.getMonth() + action)
     this.setState({
       date: updateDate
     })
@@ -30,9 +25,9 @@ class App extends Component {
 
   render () {
     return (
-      <div>
+      <div className='calendarContainer'>
         <ChangeMonth handleDate={this.handleDate} month={months[this.state.date.getMonth()]} />
-        <CalendarTable daysWeek={daysWeek} date={this.state.date} />
+        <CalendarTable date={this.state.date} />
       </div>
     )
   }

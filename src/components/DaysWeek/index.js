@@ -1,8 +1,10 @@
 import React from 'react'
-const DaysWeek = ({days}) => (
+import './index.css'
+import daysWeek from '../../data/daysWeek'
+const DaysWeek = () => (
   <thead>
     <tr>
-      {days.map((day, index) => <th key={index}>{day}</th>)}
+      {daysWeek.map((day, index) => <th key={index}>{day}</th>)}
     </tr>
   </thead>
 )
