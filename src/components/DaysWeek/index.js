@@ -2,10 +2,8 @@ import React from 'react'
 import './index.css'
 import daysWeek from '../../data/daysWeek'
 const DaysWeek = () => (
-  <thead>
-    <tr>
-      {daysWeek.map((day, index) => <th key={index}>{day}</th>)}
-    </tr>
-  </thead>
+  <div>
+    {daysWeek.map((day, index) => <div className='day' key={index}>{day}</div>)}
+  </div>
 )
 export default DaysWeek

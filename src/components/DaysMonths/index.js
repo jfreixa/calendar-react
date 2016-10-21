@@ -40,13 +40,13 @@ const DaysMonths = ({date}) => {
   }
 
   return (
-    <tbody>
+    <div>
       {calendar.map((week, index) => (
-        <tr key={index}>
-          {week.map((day, index) => ((day > 100) ? <td key={index} className='today'> {day - 100}</td> : <td key={index}>{day}</td>))}
-        </tr>
+        <div key={index}>
+          {week.map((day, index) => ((day > 100) ? <div key={index} className='today day'> {day - 100}</div> : <div className='day' key={index}>{day}</div>))}
+        </div>
       ))}
-    </tbody>
+    </div>
   )
 }
 DaysMonths.propTypes = {

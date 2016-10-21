@@ -1,0 +1,8 @@
+.day{
+    float: left;
+    height: 34px;
+    width: 34px;
+    padding-top: 8px;
+    font-size: 16px;
+    font-weight: 500;
+}
