@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.css'
+import './index.scss'
 import daysWeek from '../../data/daysWeek'
 const DaysWeek = () => (
   <div className='dayContainer'>

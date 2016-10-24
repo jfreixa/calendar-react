@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import './index.css'
+import './index.scss'
 import ArrowLeft from 'react-mdi/icons/arrow-left'
 import ArrowRight from 'react-mdi/icons/arrow-right'
 const ChangeMonth = ({handleDate, month}) => (

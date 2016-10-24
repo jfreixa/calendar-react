@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './index.css'
+import './index.scss'
 import months from '../../data/months'
 import ChangeMonth from '../ChangeMonth'
 import CalendarTable from '../CalendarTable'

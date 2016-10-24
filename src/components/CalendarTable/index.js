@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.css'
+import './index.scss'
 import DaysWeek from '../DaysWeek'
 import DaysMonths from '../DaysMonths'
 const CalendarTable = ({date}) => (
