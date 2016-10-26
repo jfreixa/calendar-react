@@ -4,9 +4,9 @@ import ArrowLeft from 'react-mdi/icons/arrow-left'
 import ArrowRight from 'react-mdi/icons/arrow-right'
 
 const ChangeMonth = ({handleDate, month, year}) => (
-  <div>
+  <div className='changeMonth'>
     <button onClick={handleDate} className='arrow prev'>
-      <ArrowLeft size={20} className='prev' />
+      <ArrowLeft size={20} fill='white' tintColor='white' className='prev' />
     </button>
     <div id='actualDate'>
       {month} {year}

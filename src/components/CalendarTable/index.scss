@@ -1,10 +1,17 @@
-.day{
-  cursor: pointer;
+@mixin day {
   float: left;
   height: 34px;
   width: 34px;
-  color: #000;
+  color: #FFF;
   padding-top: 6px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
+}
+.day {
+  cursor: pointer;
+  @include day;
+}
+.no-day {
+  cursor: default;
+  @include day;
 }

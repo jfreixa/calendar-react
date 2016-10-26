@@ -1,16 +1,26 @@
+.changeMonth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+}
 #actualDate {
-  width: 40%;
+  width: 60%;
   display: inline-block;
-  font-weight: 700;
+  font-weight: 400;
 }
 .arrow {
   border: none;
   background: none;
-  line-height: 3em;
   cursor: pointer;
-  color: #000;
+  color: #FFF;
   font-size: 1em;
   font-weight: 700;
+
+  svg {
+    fill: #FFF;
+    margin-top: 50%;
+  }
 }
 .arrow:focus {
   outline: none !important;

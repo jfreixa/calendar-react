@@ -22,7 +22,7 @@ class Calendar extends Component {
     this.handleCompleted = this.handleCompleted.bind(this)
   }
 
-  handleDate ({target}) {
+  handleDate ({ target }) {
     let action = target.classList.contains('next') ? 1 : -1
     let updateDate = new Date(this.state.date.getTime())
     updateDate.setMonth(updateDate.getMonth() + action)
@@ -31,7 +31,7 @@ class Calendar extends Component {
     })
   }
 
-  handleDay ({target}) {
+  handleDay ({ target }) {
     let todoDate = target.getAttribute('value')
 
     this.setState({
@@ -39,11 +39,11 @@ class Calendar extends Component {
     })
   }
 
-  handleNoteKeyPress ({target, key}) {
+  handleNoteKeyPress ({ target, key }) {
     if (key === 'Enter' && target.value !== '') {
       let date = this.state.todoDate
       let notes = this.state.notes.slice()
-      let lastObject = notes[notes.length - 1]
+      let lastObject = notes[ notes.length - 1 ]
       let newID = parseInt(lastObject.id, 10) + 1
 
       notes.push({
@@ -57,7 +57,7 @@ class Calendar extends Component {
     }
   }
 
-  handleCompleted ({target}) {
+  handleCompleted ({ target }) {
     const notes = this.state.notes.slice()
     let updatedNotes = notes.filter(note => note.id !== target.id)
 
@@ -69,9 +69,13 @@ class Calendar extends Component {
   render () {
     return (
       <div>
-        <TodoDay todoDate={this.state.todoDate} handleNoteKeyPress={this.handleNoteKeyPress} notes={this.state.notes} handleCompleted={this.handleCompleted} />
+        <TodoDay
+          todoDate={this.state.todoDate}
+          handleNoteKeyPress={this.handleNoteKeyPress}
+          notes={this.state.notes}
+          handleCompleted={this.handleCompleted} />
         <div className='calendarContainer'>
-          <ChangeMonth handleDate={this.handleDate} month={months[this.state.date.getMonth()]} year={this.state.date.getFullYear()} />
+          <ChangeMonth handleDate={this.handleDate} month={months[ this.state.date.getMonth() ]} year={this.state.date.getFullYear()} />
           <div className='fullCalendar'>
             <CalendarTable date={this.state.date} notes={this.state.notes} handleDay={this.handleDay} />
           </div>
