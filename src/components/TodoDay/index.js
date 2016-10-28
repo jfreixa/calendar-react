@@ -13,7 +13,7 @@ const TodoDay = ({todoDate, handleNoteKeyPress, notes, handleCompleted}) => {
     <div className='todoDay'>
       <h5>{noteDate}</h5>
       <div className='input-field'>
-        <input onKeyPress={handleNoteKeyPress} type='text' name='note' />
+        <input onKeyPress={handleNoteKeyPress} type='text' id='note' />
         <label htmlFor='note'>
           Introdueix una nota
         </label>

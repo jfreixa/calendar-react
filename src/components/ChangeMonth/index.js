@@ -1,25 +1,27 @@
 import React, { PropTypes } from 'react'
 import './index.scss'
+import months from '../../data/months'
 import ArrowLeft from 'react-mdi/icons/arrow-left'
 import ArrowRight from 'react-mdi/icons/arrow-right'
 
-const ChangeMonth = ({handleDate, month, year}) => (
+const ChangeMonth = ({handleDateUp, handleDateDown, month, year}) => (
   <div className='changeMonth'>
-    <button onClick={handleDate} className='arrow prev'>
-      <ArrowLeft size={20} fill='white' tintColor='white' className='prev' />
+    <button onClick={handleDateDown} className='arrow'>
+      <ArrowLeft size={20} />
     </button>
     <div id='actualDate'>
-      {month} {year}
+      {months[month]} {year}
     </div>
-    <button onClick={handleDate} className='arrow next'>
-      <ArrowRight size={20} className='next' />
+    <button onClick={handleDateUp} className='arrow'>
+      <ArrowRight size={20} />
     </button>
   </div>
 )
 
 ChangeMonth.propTypes = {
-  handleDate: PropTypes.func.isRequired,
-  month: PropTypes.string.isRequired,
+  handleDateUp: PropTypes.func.isRequired,
+  handleDateDown: PropTypes.func.isRequired,
+  month: PropTypes.number.isRequired,
   year: PropTypes.number.isRequired
 }
 
