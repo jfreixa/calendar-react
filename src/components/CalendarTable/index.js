@@ -3,17 +3,15 @@ import './index.scss'
 import DaysWeek from '../DaysWeek'
 import DaysMonths from '../DaysMonths'
 
-const CalendarTable = ({date, handleDay, notes}) => (
+const CalendarTable = ({date, handleDay}) => (
   <div>
     <DaysWeek />
-    <DaysMonths date={date} handleDay={handleDay} notes={notes} />
+    <DaysMonths date={date} />
   </div>
 )
 
 CalendarTable.propTypes = {
-  date: PropTypes.object.isRequired,
-  handleDay: PropTypes.func.isRequired,
-  notes: PropTypes.array.isRequired
+  date: PropTypes.object.isRequired
 }
 
 export default CalendarTable

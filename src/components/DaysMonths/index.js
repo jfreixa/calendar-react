@@ -1,17 +1,10 @@
 import React, { PropTypes } from 'react'
 import './index.scss'
 
-const sameDate = (date1, date2) => (
-    date1.getDate() === date2.getDate() &&
-    date1.getMonth() === date2.getMonth() &&
-    date1.getFullYear() === date2.getFullYear()
-)
-
-const DaysMonths = ({date, handleDay, notes}) => {
+const DaysMonths = ({date, handleDay}) => {
   let actualDate = new Date(date.getTime())
   actualDate.setDate(1)
 
-  let noteMonth = date
   let actualMonth = actualDate.getMonth()
   let calendar = []
 
@@ -23,14 +16,8 @@ const DaysMonths = ({date, handleDay, notes}) => {
 
   while (actualDate.getMonth() === actualMonth) {
     let dayClass = 'day'
-    if (sameDate(actualDate, new Date())) {
-      dayClass += ' today'
-    }
     if (actualDate.getDay() === 1) {
       dayClass += ' clear'
-    }
-    if (notes.find((note) => note.date === `${actualDate.getDate()}/${actualDate.getMonth() + 1}/${actualDate.getFullYear()}`)) {
-      dayClass += ' note'
     }
     calendar.push({'dayClass': dayClass, 'number': actualDate.getDate()})
     actualDate.setDate(actualDate.getDate() + 1)
@@ -45,18 +32,15 @@ const DaysMonths = ({date, handleDay, notes}) => {
   return (
     <div className='dayContainer'>
       {calendar.map((day, index) => {
-        let notesDay = `${day.number}/${noteMonth.getMonth() + 1}/${noteMonth.getFullYear()}`
         return day.number !== null
-          ? <div key={index} onClick={handleDay} value={notesDay} className={day.dayClass}>{day.number}</div>
+          ? <div key={index} className={day.dayClass}>{day.number}</div>
           : <div key={index} className={day.dayClass}></div>
       })}
     </div>
   )
 }
 DaysMonths.propTypes = {
-  date: PropTypes.object.isRequired,
-  handleDay: PropTypes.func.isRequired,
-  notes: PropTypes.array.isRequired
+  date: PropTypes.object.isRequired
 }
 
 export default DaysMonths

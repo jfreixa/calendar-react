@@ -3,22 +3,23 @@ import './index.scss'
 import ArrowLeft from 'react-mdi/icons/arrow-left'
 import ArrowRight from 'react-mdi/icons/arrow-right'
 
-const ChangeMonth = ({handleDate, month, year}) => (
+const ChangeMonth = ({handleNextDate, handlePreviousDate, month, year}) => (
   <div className='changeMonth'>
-    <button onClick={handleDate} className='arrow prev'>
-      <ArrowLeft size={20} fill='white' tintColor='white' className='prev' />
+    <button onClick={handlePreviousDate} className='arrow'>
+      <ArrowLeft size={20} fill='white' tintColor='white' />
     </button>
     <div id='actualDate'>
       {month} {year}
     </div>
-    <button onClick={handleDate} className='arrow next'>
-      <ArrowRight size={20} className='next' />
+    <button onClick={handleNextDate} className='arrow'>
+      <ArrowRight size={20} />
     </button>
   </div>
 )
 
 ChangeMonth.propTypes = {
-  handleDate: PropTypes.func.isRequired,
+  handlePreviousDate: PropTypes.func.isRequired,  
+  handleNextDate: PropTypes.func.isRequired,
   month: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired
 }

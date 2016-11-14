@@ -8,10 +8,8 @@
   font-weight: 400;
 }
 .day {
-  cursor: pointer;
   @include day;
 }
 .no-day {
-  cursor: default;
   @include day;
 }
