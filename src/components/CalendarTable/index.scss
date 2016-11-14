@@ -2,10 +2,11 @@
   float: left;
   height: 34px;
   width: 34px;
-  color: #FFF;
+  color: #000;
   padding-top: 6px;
   font-size: 16px;
   font-weight: 400;
+  margin: 1px;
 }
 .day {
   @include day;

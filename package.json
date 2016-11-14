@@ -52,7 +52,8 @@
   "dependencies": {
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-mdi": "^0.5.7"
+    "react-mdi": "^0.5.7",
+    "whatwg-fetch": "^1.0.0"
   },
   "scripts": {
     "start": "node scripts/start.js",

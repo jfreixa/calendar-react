@@ -9,27 +9,52 @@ class Calendar extends Component {
   constructor (...args) {
     super(...args)
     this.state = {
-      date: new Date()
+      date: new Date(),
+      activeDays: []
     }
-
+    
     this.handleNextDate = this.handleNextDate.bind(this)
-    this.handlePreviousDate = this.handlePreviousDate.bind(this)    
+    this.handlePreviousDate = this.handlePreviousDate.bind(this)   
+    this.activeDaysState = this.activeDaysState.bind(this) 
   }
 
-  handleNextDate ({ target }) {
+  componentWillMount(){
+    this.updateActiveDays()
+  }
+
+  updateActiveDays(){
+    fetch('http://localhost:3000/activedays', {
+      method: 'get',
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then((response) => response.json())
+    .then(this.activeDaysState).catch(function(err) {
+      console.log(err)
+    });
+  }
+
+  activeDaysState(json){
+    this.setState({
+        activeDays: json
+    })
+  }
+  
+  handleNextDate () {
+    this.updateDate(1)
+  }
+
+  handlePreviousDate () {
+    this.updateDate(-1)    
+  }
+
+  updateDate(value){
     let updateDate = new Date(this.state.date.getTime())
-    updateDate.setMonth(updateDate.getMonth() + 1)
+    updateDate.setMonth(updateDate.getMonth() + value)
     this.setState({
       date: updateDate
     })
-  }
-
-  handlePreviousDate ({ target }) {
-    let updateDate = new Date(this.state.date.getTime())
-    updateDate.setMonth(updateDate.getMonth() - 1)
-    this.setState({
-      date: updateDate
-    })
+    this.updateActiveDays();
   }
 
   render () {
@@ -42,7 +67,7 @@ class Calendar extends Component {
             year={this.state.date.getFullYear()} 
           />
           <div className='fullCalendar'>
-            <CalendarTable date={this.state.date} />
+            <CalendarTable date={this.state.date} activeDays={this.state.activeDays} />
           </div>
         </div>
     )

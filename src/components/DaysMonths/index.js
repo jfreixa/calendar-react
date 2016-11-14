@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import './index.scss'
 
-const DaysMonths = ({date, handleDay}) => {
+const DaysMonths = ({date, activeDays}) => {
   let actualDate = new Date(date.getTime())
   actualDate.setDate(1)
 
@@ -13,11 +13,14 @@ const DaysMonths = ({date, handleDay}) => {
   for (let i = 1; i < firstDayOfMonth; i++) {
     calendar.push({'dayClass': 'no-day', 'number': null})
   }
-
+  
   while (actualDate.getMonth() === actualMonth) {
     let dayClass = 'day'
     if (actualDate.getDay() === 1) {
       dayClass += ' clear'
+    }
+    if (activeDays.find((day) => day === actualDate.getDate())) {
+      dayClass += ' active'
     }
     calendar.push({'dayClass': dayClass, 'number': actualDate.getDate()})
     actualDate.setDate(actualDate.getDate() + 1)

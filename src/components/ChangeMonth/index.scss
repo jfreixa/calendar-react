@@ -7,18 +7,18 @@
 #actualDate {
   width: 60%;
   display: inline-block;
-  font-weight: 400;
+  font-weight: 600;
 }
 .arrow {
   border: none;
   background: none;
   cursor: pointer;
-  color: #FFF;
+  color: #000;
   font-size: 1em;
   font-weight: 700;
 
   svg {
-    fill: #FFF;
+    fill: #000;
     margin-top: 50%;
   }
 }
