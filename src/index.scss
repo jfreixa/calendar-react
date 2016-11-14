@@ -1,19 +1,8 @@
-*, *:before, *:after {
+#activeDaysCalendar,
+#activeDaysCalendar *,
+#activeDaysCalendar *:before,
+#activeDaysCalendar *:after {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
-}
-
-body {
-  box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: default;
-  background-color: #eaeaea;
-  font-family: roboto;
-  min-height: 100vh;
 }

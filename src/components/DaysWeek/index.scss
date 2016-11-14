@@ -1,8 +1,10 @@
-.daysWeek {
-  cursor: default;
-  height: 34px;
-  width: 34px;
-  font-weight: 500;
-  color: #646464;
-  text-transform: uppercase;
+#activeDaysCalendar{
+  .daysWeek {
+    cursor: default;
+    height: 34px;
+    width: 34px;
+    font-weight: 500;
+    color: #646464;
+    text-transform: uppercase;
+  }
 }

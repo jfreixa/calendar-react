@@ -3,14 +3,16 @@
   height: 34px;
   width: 34px;
   color: #000;
-  padding-top: 6px;
+  line-height: 34px;
   font-size: 16px;
   font-weight: 400;
   margin: 1px;
 }
-.day {
-  @include day;
-}
-.no-day {
-  @include day;
+#activeDaysCalendar{
+  .day {
+    @include day;
+  }
+  .no-day {
+    @include day;
+  }
 }

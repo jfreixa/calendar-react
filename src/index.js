@@ -5,5 +5,5 @@ import './index.scss'
 
 ReactDOM.render(
   <Calendar />,
-  document.getElementById('root')
+  document.getElementById('activeDaysCalendar')
 )

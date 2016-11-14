@@ -1,9 +1,11 @@
-.active{
-  background-color: #ff7c22;
-  color: #fff;
-  border-radius: 5px;
-}
+#activeDaysCalendar{
+  .active{
+    background-color: #ff7c22;
+    color: #fff;
+    border-radius: 5px;
+  }
 
-.clear{
-  clear: both;
+  .clear{
+    clear: both;
+  }
 }

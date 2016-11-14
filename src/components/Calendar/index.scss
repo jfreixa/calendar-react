@@ -1,19 +1,21 @@
-.calendarContainer{
-  padding: 20px;
-  color: #646464;
-  width: 350px;
-  min-height: 350px;
-  text-align: center;
-  background-color: #FFF;
-  border-radius: 0px 0px 10px 10px;
+#activeDaysCalendar{
+  .calendarContainer{
+    padding: 20px;
+    color: #646464;
+    width: 350px;
+    min-height: 350px;
+    text-align: center;
+    background-color: #FFF;
+    border-radius: 0px 0px 10px 10px;
 
-  .fullCalendar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .fullCalendar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
-}
 
-.dayContainer{
-  overflow: hidden;
+  .dayContainer{
+    overflow: hidden;
+  }
 }

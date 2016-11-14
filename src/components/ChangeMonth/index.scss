@@ -1,28 +1,30 @@
-.changeMonth {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 10px;
-}
-#actualDate {
-  width: 60%;
-  display: inline-block;
-  font-weight: 600;
-}
-.arrow {
-  border: none;
-  background: none;
-  cursor: pointer;
-  color: #000;
-  font-size: 1em;
-  font-weight: 700;
-
-  svg {
-    fill: #000;
-    margin-top: 50%;
+#activeDaysCalendar{
+  .changeMonth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
   }
-}
-.arrow:focus {
-  outline: none !important;
-  background: transparent;
+  #actualDate {
+    width: 60%;
+    display: inline-block;
+    font-weight: 600;
+  }
+  .arrow {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #000;
+    font-size: 1em;
+    font-weight: 700;
+
+    svg {
+      fill: #000;
+      margin-top: 50%;
+    }
+  }
+  .arrow:focus {
+    outline: none !important;
+    background: transparent;
+  }
 }
