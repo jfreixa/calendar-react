@@ -46,14 +46,13 @@
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
     "webpack": "1.13.2",
-    "webpack-dev-server": "1.16.1",
-    "whatwg-fetch": "1.0.0"
+    "webpack-dev-server": "1.16.1"
   },
   "dependencies": {
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-mdi": "^0.5.7",
-    "whatwg-fetch": "^1.0.0"
+    "react-tooltip": "^3.2.1"
   },
   "scripts": {
     "start": "node scripts/start.js",

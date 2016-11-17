@@ -16,13 +16,15 @@ const DaysMonths = ({date, activeDays}) => {
   
   while (actualDate.getMonth() === actualMonth) {
     let dayClass = 'day'
+    let classes = '';
     if (actualDate.getDay() === 1) {
       dayClass += ' clear'
     }
     if (actualDate.getDate() in activeDays) {
       dayClass += ' active'
+      classes = activeDays[actualDate.getDate()].join('<br />')
     }
-    calendar.push({'dayClass': dayClass, 'number': actualDate.getDate()})
+    calendar.push({'dayClass': dayClass, 'number': actualDate.getDate(), classes})
     actualDate.setDate(actualDate.getDate() + 1)
   }
 
@@ -31,12 +33,11 @@ const DaysMonths = ({date, activeDays}) => {
       calendar.push({'dayClass': 'no-day', 'number': null})
     }
   }
-
   return (
     <div className='dayContainer'>
       {calendar.map((day, index) => {
         return day.number !== null
-          ? <div key={index} className={day.dayClass}>{day.number}</div>
+          ? <div key={index} data-tip={day.classes} data-multiline={true} className={day.dayClass}>{day.number}</div>
           : <div key={index} className={day.dayClass}></div>
       })}
     </div>

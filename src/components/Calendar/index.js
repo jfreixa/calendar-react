@@ -5,6 +5,8 @@ import CalendarTable from '../CalendarTable'
 
 import months from '../../data/months'
 
+import ReactTooltip from 'react-tooltip'
+
 class Calendar extends Component {
   constructor (...args) {
     super(...args)
@@ -27,35 +29,31 @@ class Calendar extends Component {
     this.updateActiveDays()
   }
 
+  ajaxCall(url, callback) {
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = () => {
+        if (xmlhttp.readyState === XMLHttpRequest.DONE ) {
+          if (xmlhttp.status === 200) {
+              callback(xmlhttp.responseText);
+          }
+        }
+    };
+    xmlhttp.open("GET", url, true);
+    //xmlhttp.open("GET", "http://localhost:3000/hallo", true);
+    xmlhttp.send();
+  }
+
   updateActiveDays(){
     let date = this.state.date
     let month = date.getMonth()+1
     month = month<10 ? `0${month}` : month
     const URL = `/box/${this.athlete}/month_reserves/${this.numberAthlete}/${date.getFullYear()}-${month}-${date.getDate()}`
-    let xmlhttp = new XMLHttpRequest();
-
-    xmlhttp.onreadystatechange = () => {
-        if (xmlhttp.readyState === XMLHttpRequest.DONE ) {
-          if (xmlhttp.status === 200) {
-              this.activeDaysState(JSON.parse(xmlhttp.responseText));
-          }
-          else if (xmlhttp.status === 400) {
-              console.log('There was an error 400');
-          }
-          else {
-              console.log('something else other than 200 was returned');
-          }
-        }
-    };
-
-    xmlhttp.open("GET", URL, true);
-    //xmlhttp.open("GET", "http://localhost:3000/hallo", true);
-    xmlhttp.send();
+    this.ajaxCall(URL, this.activeDaysState)
   }
 
-  activeDaysState(json){
+  activeDaysState(response){
     this.setState({
-        activeDays: json
+        activeDays: JSON.parse(response)
     })
   }
   
@@ -89,6 +87,7 @@ class Calendar extends Component {
           <div className='fullCalendar'>
             <CalendarTable date={this.state.date} activeDays={this.state.activeDays} />
           </div>
+          <ReactTooltip data-multiline={true} place="top" effect='solid' class='tooltipCalendar' />
         </div>
     )
   }
