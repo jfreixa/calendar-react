@@ -19,7 +19,7 @@ const DaysMonths = ({date, activeDays}) => {
     if (actualDate.getDay() === 1) {
       dayClass += ' clear'
     }
-    if (activeDays.find((day) => day === actualDate.getDate())) {
+    if (actualDate.getDate() in activeDays) {
       dayClass += ' active'
     }
     calendar.push({'dayClass': dayClass, 'number': actualDate.getDate()})
