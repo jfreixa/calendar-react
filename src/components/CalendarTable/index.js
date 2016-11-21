@@ -3,9 +3,9 @@ import './index.scss'
 import DaysWeek from '../DaysWeek'
 import DaysMonths from '../DaysMonths'
 
-const CalendarTable = ({date, activeDays}) => (
+const CalendarTable = ({date, activeDays, daysWeek}) => (
   <div>
-    <DaysWeek />
+    <DaysWeek daysWeek={daysWeek} />
     <DaysMonths date={date} activeDays={activeDays} />
   </div>
 )
