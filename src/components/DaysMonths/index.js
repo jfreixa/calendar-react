@@ -1,7 +1,10 @@
 import React, { PropTypes } from 'react'
+import ReactTooltip from 'react-tooltip'
 import './index.scss'
 
 const DaysMonths = ({date, activeDays}) => {
+  ReactTooltip.rebuild()
+
   let actualDate = new Date(date.getTime())
   actualDate.setDate(1)
 
@@ -34,12 +37,15 @@ const DaysMonths = ({date, activeDays}) => {
     }
   }
   return (
-    <div className='dayContainer'>
-      {calendar.map((day, index) => {
-        return day.number !== null
-          ? <div key={index} data-tip={day.classes} data-multiline={true} className={day.dayClass}>{day.number}</div>
-          : <div key={index} className={day.dayClass}></div>
-      })}
+    <div>
+      <div className='dayContainer'>
+        {calendar.map((day, index) => {
+          return day.number !== null
+            ? <div key={index} data-tip={day.classes} data-multiline={true} className={day.dayClass}>{day.number}</div>
+            : <div key={index} className={day.dayClass}></div>
+        })}
+      </div>
+      <ReactTooltip data-multiline={true} place="top" effect='solid' class='tooltipCalendar' />
     </div>
   )
 }
