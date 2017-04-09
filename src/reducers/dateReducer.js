@@ -1,4 +1,4 @@
-import * as types from '../actions/actionTypes'
+import { INCREMENT, DECREMENT } from '../constants/actionTypes'
 
 const initialDate = {
   date: new Date()
@@ -6,13 +6,13 @@ const initialDate = {
 
 const dateReducer = (state = initialDate, action) => {
   switch (action.type) {
-    case types.INCREMENT:
+    case INCREMENT:
       let increment = new Date(state.date.getTime())
       increment.setMonth(increment.getMonth() + 1)
       return {
         date: increment
       }
-    case types.DECREMENT:
+    case DECREMENT:
       let decrement = new Date(state.date.getTime())
       decrement.setMonth(decrement.getMonth() - 1)
       return {

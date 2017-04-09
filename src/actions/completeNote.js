@@ -1,7 +1,7 @@
-import * as types from './actionTypes'
+import { COMPLETE_NOTE } from '../constants/actionTypes'
 
 const completeNote = (id) => ({
-  type: types.COMPLETE_NOTE,
+  type: COMPLETE_NOTE,
   payload: {
     id
   }

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import { object, func, array } from 'prop-types'
 import './index.scss'
 
 const sameDate = (date1, date2) => (
@@ -54,9 +55,9 @@ const DaysMonths = ({date, handleDay, notes}) => {
   )
 }
 DaysMonths.propTypes = {
-  date: PropTypes.object.isRequired,
-  handleDay: PropTypes.func.isRequired,
-  notes: PropTypes.array.isRequired
+  date: object.isRequired,
+  handleDay: func.isRequired,
+  notes: array.isRequired
 }
 
 export default DaysMonths

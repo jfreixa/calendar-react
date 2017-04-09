@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import { func, string, array } from 'prop-types'
 import './index.scss'
 
 import months from '../../data/months'
@@ -38,9 +39,9 @@ const TodoDay = ({todoDate, handleNoteKeyPress, notes, handleCompleted}) => {
   )
 }
 TodoDay.propTypes = {
-  todoDate: PropTypes.string,
-  handleNoteKeyPress: PropTypes.func.isRequired,
-  notes: PropTypes.array.isRequired,
-  handleCompleted: PropTypes.func.isRequired
+  todoDate: string,
+  handleNoteKeyPress: func.isRequired,
+  notes: array.isRequired,
+  handleCompleted: func.isRequired
 }
 export default TodoDay

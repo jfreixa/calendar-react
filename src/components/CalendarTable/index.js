@@ -1,4 +1,6 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import { object, func, array } from 'prop-types'
+
 import './index.scss'
 import DaysWeek from '../DaysWeek'
 import DaysMonths from '../DaysMonths'
@@ -11,9 +13,9 @@ const CalendarTable = ({date, handleDay, notes}) => (
 )
 
 CalendarTable.propTypes = {
-  date: PropTypes.object.isRequired,
-  handleDay: PropTypes.func.isRequired,
-  notes: PropTypes.array.isRequired
+  date: object.isRequired,
+  handleDay: func.isRequired,
+  notes: array.isRequired
 }
 
 export default CalendarTable

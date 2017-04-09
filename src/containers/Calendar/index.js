@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import { func, string, array, object } from 'prop-types'
 import './index.scss'
 import { connect } from 'react-redux'
 import { increment, decrement, todoDateAction, addNote, completeNote } from '../../actions'
@@ -39,20 +40,20 @@ const Calendar = (props) => {
 }
 
 Calendar.propTypes = {
-  date: PropTypes.object.isRequired,
-  notes: PropTypes.array.isRequired,
-  todoDate: PropTypes.string.isRequired,
-  increment: PropTypes.func.isRequired,
-  decrement: PropTypes.func.isRequired,
-  changeTodoDate: PropTypes.func.isRequired,
-  addNote: PropTypes.func.isRequired,
-  completeNote: PropTypes.func.isRequired
+  date: object.isRequired,
+  notes: array.isRequired,
+  todoDate: string.isRequired,
+  increment: func.isRequired,
+  decrement: func.isRequired,
+  changeTodoDate: func.isRequired,
+  addNote: func.isRequired,
+  completeNote: func.isRequired
 }
 
 const mapStateToProps = (state) => ({
-    ...state.dateReducer,
-    ...state.todoDateReducer,
-    ...state.noteReducer
+  ...state.dateReducer,
+  ...state.todoDateReducer,
+  ...state.noteReducer
 })
 
 const mapDispatchToProps = (dispatch) => {

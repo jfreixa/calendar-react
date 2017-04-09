@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import { func, number } from 'prop-types'
 import './index.scss'
 import months from '../../data/months'
 import ArrowLeft from 'react-mdi/icons/arrow-left'
@@ -19,10 +20,10 @@ const ChangeMonth = ({handleDateUp, handleDateDown, month, year}) => (
 )
 
 ChangeMonth.propTypes = {
-  handleDateUp: PropTypes.func.isRequired,
-  handleDateDown: PropTypes.func.isRequired,
-  month: PropTypes.number.isRequired,
-  year: PropTypes.number.isRequired
+  handleDateUp: func.isRequired,
+  handleDateDown: func.isRequired,
+  month: number.isRequired,
+  year: number.isRequired
 }
 
 export default ChangeMonth

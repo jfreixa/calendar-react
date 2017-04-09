@@ -1,7 +1,7 @@
-import * as types from './actionTypes'
+import { TODO_DATE } from '../constants/actionTypes'
 
 const todoDateAction = (updateTodoDate) => ({
-  type: types.TODO_DATE,
+  type: TODO_DATE,
   payload: {
     todoDate: updateTodoDate
   }

@@ -1,7 +1,7 @@
-import * as types from './actionTypes'
+import { NEW_NOTE } from '../constants/actionTypes'
 
 const addNote = (date, description) => ({
-  type: types.NEW_NOTE,
+  type: NEW_NOTE,
   payload: {
     id: new Date().getUTCMilliseconds(),
     date,

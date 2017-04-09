@@ -1,7 +1,7 @@
-import * as types from './actionTypes'
+import { DECREMENT } from '../constants/actionTypes'
 
 const decrement = () => ({
-  type: types.DECREMENT
+  type: DECREMENT
 })
 
 export default decrement

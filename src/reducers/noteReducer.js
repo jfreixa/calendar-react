@@ -1,4 +1,4 @@
-import * as types from '../actions/actionTypes'
+import { NEW_NOTE, COMPLETE_NOTE } from '../constants/actionTypes'
 import NOTES from '../data/notes'
 
 const initialNotes = {
@@ -8,14 +8,14 @@ const initialNotes = {
 const noteReducer = (state = initialNotes, action) => {
   let notes = [...state.notes]
   switch (action.type) {
-    case types.NEW_NOTE:
+    case NEW_NOTE:
       notes.push({
         id: `${action.payload.id}`,
         description: action.payload.description,
         date: action.payload.date
       })
       return {notes}
-    case types.COMPLETE_NOTE:
+    case COMPLETE_NOTE:
       let updatedNotes = notes.filter(note => note.id !== action.payload.id)
       return {notes: updatedNotes}
     default:

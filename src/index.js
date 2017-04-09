@@ -1,13 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { createStore } from 'redux'
+
 import { Provider } from 'react-redux'
-import root from './reducers/root'
+import store from './store'
 
 import Calendar from './containers/Calendar'
 import './index.scss'
-
-let store = createStore(root)
 
 const App = () => (
   <Provider store={store}>
