@@ -1,25 +1,19 @@
 import { INCREMENT, DECREMENT } from '../constants/actionTypes'
 
-const initialDate = {
-  date: new Date()
-}
+const initialDate = new Date()
 
-const dateReducer = (state = initialDate, action) => {
+const dateReducer = (date = initialDate, action) => {
   switch (action.type) {
     case INCREMENT:
-      let increment = new Date(state.date.getTime())
+      let increment = new Date(date.getTime())
       increment.setMonth(increment.getMonth() + 1)
-      return {
-        date: increment
-      }
+      return increment
     case DECREMENT:
-      let decrement = new Date(state.date.getTime())
+      let decrement = new Date(date.getTime())
       decrement.setMonth(decrement.getMonth() - 1)
-      return {
-        date: decrement
-      }
+      return decrement
     default:
-      return state
+      return date
   }
 }
 

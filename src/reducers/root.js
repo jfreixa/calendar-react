@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux'
-import dateReducer from './dateReducer'
-import todoDateReducer from './todoDateReducer'
-import noteReducer from './noteReducer'
+import date from './dateReducer'
+import todoDate from './todoDateReducer'
+import notes from './noteReducer'
 
 const root = combineReducers({
-  dateReducer,
-  todoDateReducer,
-  noteReducer
+  date,
+  todoDate,
+  notes
 })
 
 export default root

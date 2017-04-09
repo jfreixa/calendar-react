@@ -1,9 +1,12 @@
 import React from 'react'
 import { func, string, array, object } from 'prop-types'
+
 import './index.scss'
+
 import { connect } from 'react-redux'
+
 import { increment, decrement, todoDateAction, addNote, completeNote } from '../../actions'
-import { TodoDay, ChangeMonth, CalendarTable } from '../../components'
+import { TodoDay, ChangeMonth, /*CalendarTable*/DaysWeek, DaysMonths } from '../../components'
 
 const Calendar = (props) => {
   const handleDay = ({ target }) => {
@@ -19,7 +22,8 @@ const Calendar = (props) => {
   }
 
   const handleCompleted = ({ target }) => {
-    setTimeout(() => props.completeNote(target.id), 700)
+    let id = target.id
+    setTimeout(() => props.completeNote(id), 700)
   }
 
   return (
@@ -28,11 +32,18 @@ const Calendar = (props) => {
         todoDate={props.todoDate}
         handleNoteKeyPress={handleNoteKeyPress}
         notes={props.notes}
-        handleCompleted={handleCompleted} />
+        handleCompleted={handleCompleted}
+      />
       <div className='calendarContainer'>
-        <ChangeMonth handleDateUp={props.increment} handleDateDown={props.decrement} month={props.date.getMonth()} year={props.date.getFullYear()} />
+        <ChangeMonth
+          handleDateUp={props.increment}
+          handleDateDown={props.decrement}
+          date={props.date}
+        />
         <div className='fullCalendar'>
-          <CalendarTable date={props.date} notes={props.notes} handleDay={handleDay} />
+          <DaysWeek />
+          <DaysMonths date={props.date} handleDay={handleDay} notes={props.notes} />
+          {/*<CalendarTable date={props.date} notes={props.notes} handleDay={handleDay} />*/}
         </div>
       </div>
     </div>
@@ -50,20 +61,18 @@ Calendar.propTypes = {
   completeNote: func.isRequired
 }
 
-const mapStateToProps = (state) => ({
-  ...state.dateReducer,
-  ...state.todoDateReducer,
-  ...state.noteReducer
+const mapStateToProps = ({ notes, date, todoDate }) => ({
+  notes,
+  date,
+  todoDate
 })
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    increment: () => dispatch(increment()),
-    decrement: () => dispatch(decrement()),
-    changeTodoDate: (todoDate) => dispatch(todoDateAction(todoDate)),
-    addNote: (date, description) => dispatch(addNote(date, description)),
-    completeNote: (id) => dispatch(completeNote(id))
-  }
-}
+const mapDispatchToProps = (dispatch) => ({
+  increment: () => dispatch(increment()),
+  decrement: () => dispatch(decrement()),
+  changeTodoDate: (todoDate) => dispatch(todoDateAction(todoDate)),
+  addNote: (date, description) => dispatch(addNote(date, description)),
+  completeNote: (id) => dispatch(completeNote(id))
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Calendar)

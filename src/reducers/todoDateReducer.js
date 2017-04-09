@@ -1,17 +1,13 @@
 import { TODO_DATE } from '../constants/actionTypes'
 
-const initialTodoDate = {
-  todoDate: `${new Date().getDate()}/${new Date().getMonth() + 1}/${new Date().getFullYear()}`
-}
+const initialTodoDate = `${new Date().getDate()}/${new Date().getMonth() + 1}/${new Date().getFullYear()}`
 
-const todoDateReducer = (state = initialTodoDate, action) => {
-  switch (action.type) {
+const todoDateReducer = (todoDate = initialTodoDate, { type, payload }) => {
+  switch (type) {
     case TODO_DATE:
-      return {
-        todoDate: action.payload.todoDate
-      }
+      return payload.todoDate
     default:
-      return state
+      return todoDate
   }
 }
 
