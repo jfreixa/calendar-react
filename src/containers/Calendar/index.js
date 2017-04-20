@@ -6,7 +6,7 @@ import './index.scss'
 import { connect } from 'react-redux'
 
 import { increment, decrement, todoDateAction, addNote, completeNote } from '../../actions'
-import { TodoDay, ChangeMonth, /*CalendarTable*/DaysWeek, DaysMonths } from '../../components'
+import { TodoDay, ChangeMonth, DaysWeek, DaysMonths } from '../../components'
 
 const Calendar = (props) => {
   const handleDay = ({ target }) => {
@@ -43,7 +43,6 @@ const Calendar = (props) => {
         <div className='fullCalendar'>
           <DaysWeek />
           <DaysMonths date={props.date} handleDay={handleDay} notes={props.notes} />
-          {/*<CalendarTable date={props.date} notes={props.notes} handleDay={handleDay} />*/}
         </div>
       </div>
     </div>

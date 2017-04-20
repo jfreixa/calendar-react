@@ -1,7 +1,9 @@
 import React from 'react'
 import { func, object } from 'prop-types'
+
 import './index.scss'
 import months from '../../data/months'
+
 import ArrowLeft from 'react-mdi/icons/arrow-left'
 import ArrowRight from 'react-mdi/icons/arrow-right'
 

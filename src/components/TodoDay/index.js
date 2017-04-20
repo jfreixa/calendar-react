@@ -3,6 +3,7 @@ import { func, string, array } from 'prop-types'
 import './index.scss'
 
 import months from '../../data/months'
+import { TodoNote } from '../'
 
 const TodoDay = ({todoDate, handleNoteKeyPress, notes, handleCompleted}) => {
   let infoToday = todoDate.split('/')
@@ -19,29 +20,18 @@ const TodoDay = ({todoDate, handleNoteKeyPress, notes, handleCompleted}) => {
           Introdueix una nota
         </label>
       </div>
-      { searchNote.length > 0 ? (
-        <div>
-          {searchNote.map((note, index) => (
-            <p key={note.id}>
-              <input
-                onChange={handleCompleted}
-                className='filled-in'
-                type='checkbox'
-                id={note.id} />
-              <label htmlFor={note.id}>
-                {note.description}
-              </label>
-            </p>
-            ))}
-        </div>)
-         : ''}
+      {searchNote.length > 0 && searchNote.map(note => (
+        <TodoNote key={note.id} note={note} handleCompleted={handleCompleted} />
+      ))}
     </div>
   )
 }
+
 TodoDay.propTypes = {
   todoDate: string,
   handleNoteKeyPress: func.isRequired,
   notes: array.isRequired,
   handleCompleted: func.isRequired
 }
+
 export default TodoDay

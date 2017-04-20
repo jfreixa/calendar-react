@@ -1,13 +1,13 @@
 import TodoDay from './TodoDay'
 import ChangeMonth from './ChangeMonth'
-import CalendarTable from './CalendarTable'
 import DaysMonths from './DaysMonths'
 import DaysWeek from './DaysWeek'
+import TodoNote from './TodoNote'
 
 export {
   TodoDay,
   ChangeMonth,
-  CalendarTable,
   DaysMonths,
-  DaysWeek
+  DaysWeek,
+  TodoNote
 }

@@ -16,24 +16,24 @@ const DaysMonths = ({date, handleDay, notes}) => {
   let actualMonth = actualDate.getMonth()
   let calendar = []
 
-  let firstDayOfMonth = (actualDate.getDay() === 0) ? 7 : actualDate.getDay()
+  let firstDayOfMonth = actualDate.getDay() === 0 ? 7 : actualDate.getDay()
 
   for (let i = 1; i < firstDayOfMonth; i++) {
     calendar.push({'dayClass': 'no-day', 'number': null})
   }
 
   while (actualDate.getMonth() === actualMonth) {
-    let dayClass = 'day'
+    let dayClass = ['day']
     if (sameDate(actualDate, new Date())) {
-      dayClass += ' today'
+      dayClass.push('today')
     }
     if (actualDate.getDay() === 1) {
-      dayClass += ' clear'
+      dayClass.push('clear')
     }
     if (notes.find((note) => note.date === `${actualDate.getDate()}/${actualDate.getMonth() + 1}/${actualDate.getFullYear()}`)) {
-      dayClass += ' note'
+      dayClass.push('note')
     }
-    calendar.push({'dayClass': dayClass, 'number': actualDate.getDate()})
+    calendar.push({'dayClass': dayClass.join(' '), 'number': actualDate.getDate()})
     actualDate.setDate(actualDate.getDate() + 1)
   }
 
@@ -49,7 +49,7 @@ const DaysMonths = ({date, handleDay, notes}) => {
         let notesDay = `${day.number}/${noteMonth.getMonth() + 1}/${noteMonth.getFullYear()}`
         return day.number !== null
           ? <div key={index} onClick={handleDay} value={notesDay} className={day.dayClass}>{day.number}</div>
-          : <div key={index} className={day.dayClass}></div>
+          : <div key={index} className={day.dayClass} />
       })}
     </div>
   )

@@ -3,7 +3,7 @@ import './index.scss'
 import daysWeek from '../../data/daysWeek'
 const DaysWeek = () => (
   <div className='dayContainer'>
-    {daysWeek.map((day, index) => <div className='day daysWeek' key={index}>{day}</div>)}
+    {daysWeek.map((day) => <div className='day daysWeek' key={day}>{day}</div>)}
   </div>
 )
 export default DaysWeek
