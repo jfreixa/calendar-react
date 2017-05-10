@@ -20,10 +20,9 @@ class Calendar extends Component {
 
     componentWillMount() {
         let path = window.location.href
-        path = path.split("box")
-        path = path[1].split("/")
-        this.athlete = path[2]
-        switch (path[3]) {
+        path = path.split("/")
+        this.athlete = path[5]
+        switch (path[6]) {
             case 'details':
                 this.language = 2
                 break
@@ -33,7 +32,7 @@ class Calendar extends Component {
             default:
                 this.language = 1
         }
-        this.numberAthlete = path[4]
+        this.numberAthlete = path[7]
         this.updateActiveDays()
     }
 
